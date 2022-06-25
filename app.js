@@ -7,13 +7,16 @@ const Post = require('./models/Post');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 // connect to mongoDB
-mongoose.connect('mongodb://localhost/cleanBlog-db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  'mongodb+srv://agenor:stekast33@cleanblog.tuwdz.mongodb.net/cleanBlog-db?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 //TEMPLATE ENGINE
 app.set('view engine', 'ejs');
